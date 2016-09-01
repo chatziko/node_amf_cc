@@ -153,12 +153,17 @@ Handle<Array> Deserializer::readArray(ReadBuffer::Region* region) {
 
 Handle<Array> Deserializer::readArrayWithLength(
     ReadBuffer::Region* region, int32_t len) {
-  // Skip the associative portion of the array: unsupported in Javascript
-  while (readUTF8(region)->Length() != 0) {
-    readValue(region);
+  Handle<Array> a = Nan::New<Array>(len);
+
+  // associative part
+  while (true) {
+    Handle<String> key = readUTF8(region);
+    if(key->Length() == 0)
+      break;
+    a->Set(key, readValue(region));
   }
  
-  Handle<Array> a = Nan::New<Array>(len);
+  // dense part
   for (int i = 0; i < len; i++) {
     a->Set(i, readValue(region));
   }

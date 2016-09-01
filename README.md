@@ -44,7 +44,6 @@ To run benchmarks:
 No plans to support:
 * AMF 0 specification
 * XMLDocument Type
-* Associative (ECMA) arrays
 * XML Type 
 * ByteArray type
 * Vector type
