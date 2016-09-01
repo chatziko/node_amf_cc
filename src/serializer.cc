@@ -6,7 +6,8 @@
 
 // From https://github.com/json-c/json-c/issues/114
 #ifndef _MSC_VER
-#include <math.h>  // isnan
+#include <cmath>  // isnan
+using std::isnan;
 #else
 #include <float.h>
 #define isnan _isnan
