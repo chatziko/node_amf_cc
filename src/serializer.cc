@@ -60,7 +60,7 @@ NAN_METHOD(Serializer::Run) {
   // If argument is not valid, you can validate it by calling JSON.parse(JSON.stringify(args[0])) i.e.
   // http://stackoverflow.com/questions/15990445/accessing-json-stringify-from-node-js-c-bindings
 
-  std::auto_ptr<Serializer> obj(new Serializer()); 
+  std::unique_ptr<Serializer> obj(new Serializer()); 
   obj->writeValue(info[0]);
   info.GetReturnValue().Set(obj->buffer_.toString());
 }

@@ -31,7 +31,7 @@ NAN_METHOD(Deserializer::Run) {
     Nan::ThrowError("Need exactly one argument");
   }
  
-  std::auto_ptr<Deserializer> obj(new Deserializer());
+  std::unique_ptr<Deserializer> obj(new Deserializer());
   obj->init(info[0]->ToString());
   Handle<Object> returnValue = Nan::New<Object>();
   returnValue->Set(Nan::New<String>("value").ToLocalChecked(), 

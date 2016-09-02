@@ -10,8 +10,9 @@
 #include <hash_map>
 #define hashmap stdext
 #else
-#include <ext/hash_map>
-#define hashmap __gnu_cxx
+#include <tr1/unordered_map>
+#define hashmap std::tr1
+#define hash_map unordered_map
 #endif
 
 class Serializer : public node::ObjectWrap {

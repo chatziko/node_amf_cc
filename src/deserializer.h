@@ -51,7 +51,7 @@ class Deserializer : public node::ObjectWrap {
 
   ObjRef makeRef(ReadBuffer::Region region, int32_t attr);
 
-  std::auto_ptr<ReadBuffer> buffer_;
+  std::unique_ptr<ReadBuffer> buffer_;
   std::vector<ReadBuffer::Region> strRefs_;
   std::vector<ObjRef> objRefs_;
   std::vector<Traits> traitRefs_;
