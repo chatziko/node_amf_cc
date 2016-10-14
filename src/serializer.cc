@@ -6,8 +6,8 @@
 
 // From https://github.com/json-c/json-c/issues/114
 #ifndef _MSC_VER
-#include <cmath>  // isnan
-using std::isnan;
+#include <cmath>          // isnan
+#define isnan std::isnan  // "using std::isnan" might fail if <cmath> also puts names in the global ns
 #else
 #include <float.h>
 #define isnan _isnan
