@@ -16,7 +16,9 @@
     "url": "http://elevengiants.com"
   },
   "dependencies": {
-    "nan": "^2.0.9",
+    "nan": "^2.0.9"
+  },
+  "devDependencies": {
     "should": "^7.1.0"
   }
 }
