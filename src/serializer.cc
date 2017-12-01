@@ -149,7 +149,7 @@ void Serializer::writeObject(Handle<Object> value) {
   objRefs_[valueId] = objRefs_.size();
   // flag with instance, no traits, no externalizable
   writeU29(INSTANCE_NO_TRAITS_NO_EXTERNALIZABLE);
-  if (value->HasOwnProperty(Nan::New<String>("type").ToLocalChecked())) {
+  if (Nan::HasOwnProperty(value, Nan::New<String>("type").ToLocalChecked()).FromJust()) {
     writeUTF8(value->Get(Nan::New<String>("type").ToLocalChecked())->ToString());
   } else {
     writeUTF8(Nan::New<String>("Object").ToLocalChecked()); 
